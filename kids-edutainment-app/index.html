@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ocean and Origins Learning Lab</title>
+    <meta
+      name="description"
+      content="An educational infotainment app for kids exploring sensory perception, nature vs nurture, aquatic animals, and world histories and traditions."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Spectral:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="hero shell">
+      <p class="kicker">Ages 8+</p>
+      <h1>Ocean and Origins Learning Lab</h1>
+      <p class="intro">
+        Learn how living things sense the world, explore nature and nurture,
+        discover aquatic animal adaptations, and honor ancient and original
+        histories, cultures, and traditions.
+      </p>
+
+      <div class="hero-metrics" aria-live="polite">
+        <div class="metric">
+          <span class="metric-label">Learning Points</span>
+          <strong id="points-value">0</strong>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Module Progress</span>
+          <strong id="progress-text">0/4</strong>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Current Badge</span>
+          <strong id="badge-text">Explorer</strong>
+        </div>
+      </div>
+
+      <div class="progress-track" role="img" aria-label="Learning module progress">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </header>
+
+    <main id="main-content" class="shell" tabindex="-1">
+      <nav class="tabs" aria-label="Learning Modules">
+        <div role="tablist" aria-label="Learning Modules">
+          <button
+            id="tab-sensory"
+            class="tab-button"
+            role="tab"
+            aria-selected="true"
+            aria-controls="panel-sensory"
+            tabindex="0"
+          >
+            Sensory Lab
+          </button>
+          <button
+            id="tab-nature"
+            class="tab-button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-nature"
+            tabindex="-1"
+          >
+            Nature + Nurture
+          </button>
+          <button
+            id="tab-aquatic"
+            class="tab-button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-aquatic"
+            tabindex="-1"
+          >
+            Aquatic Explorer
+          </button>
+          <button
+            id="tab-culture"
+            class="tab-button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-culture"
+            tabindex="-1"
+          >
+            Histories + Traditions
+          </button>
+          <button
+            id="tab-quiz"
+            class="tab-button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-quiz"
+            tabindex="-1"
+          >
+            Quest Quiz
+          </button>
+        </div>
+      </nav>
+
+      <section
+        id="panel-sensory"
+        class="panel"
+        role="tabpanel"
+        aria-labelledby="tab-sensory"
+      >
+        <h2>Sensory Perception Lab</h2>
+        <p>
+          Solve sensory puzzles and discover how animals use sight, sound,
+          touch, smell, and electroreception.
+        </p>
+
+        <article class="card challenge">
+          <h3 id="sensory-number">Challenge 1</h3>
+          <p id="sensory-prompt"></p>
+          <div id="sensory-options" class="button-grid" aria-label="Answer options"></div>
+          <p id="sensory-feedback" class="feedback" aria-live="polite"></p>
+          <button id="next-sensory" class="action ghost" type="button">
+            Next Challenge
+          </button>
+        </article>
+      </section>
+
+      <section
+        id="panel-nature"
+        class="panel"
+        role="tabpanel"
+        aria-labelledby="tab-nature"
+        hidden
+      >
+        <h2>Nature and Nurture Studio</h2>
+        <p>
+          Many traits come from both biology and environment. Try estimating the
+          balance, then compare with research-based ranges.
+        </p>
+
+        <article class="card">
+          <label class="label" for="trait-select">Choose a trait to explore</label>
+          <select id="trait-select"></select>
+
+          <div class="split">
+            <div>
+              <h3>Nature Influences</h3>
+              <ul id="nature-list"></ul>
+            </div>
+            <div>
+              <h3>Nurture Influences</h3>
+              <ul id="nurture-list"></ul>
+            </div>
+          </div>
+
+          <label class="label" for="nature-nurture-slider">
+            Estimate nurture influence: <span id="nurture-value">50%</span>
+          </label>
+          <input
+            id="nature-nurture-slider"
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+          />
+          <p class="micro">Left = mostly nature, Right = mostly nurture.</p>
+          <button id="check-balance" class="action" type="button">
+            Check My Estimate
+          </button>
+          <p id="balance-feedback" class="feedback" aria-live="polite"></p>
+        </article>
+      </section>
+
+      <section
+        id="panel-aquatic"
+        class="panel"
+        role="tabpanel"
+        aria-labelledby="tab-aquatic"
+        hidden
+      >
+        <h2>Aquatic Animal Explorer</h2>
+        <p>
+          Browse aquatic animals, learn sensory adaptations, and practice
+          conservation-minded choices.
+        </p>
+
+        <div class="filter-row" aria-label="Filter animals by habitat">
+          <button class="filter active" type="button" data-filter="all">All</button>
+          <button class="filter" type="button" data-filter="ocean">Ocean</button>
+          <button class="filter" type="button" data-filter="reef">Reef</button>
+          <button class="filter" type="button" data-filter="freshwater">Freshwater</button>
+          <button class="filter" type="button" data-filter="polar">Polar</button>
+        </div>
+
+        <div id="animal-grid" class="animal-grid" aria-label="Aquatic animal cards"></div>
+
+        <article id="animal-detail" class="card detail" aria-live="polite">
+          <h3 id="animal-name">Select an animal</h3>
+          <p id="animal-fact">
+            Choose a card above to reveal sensory superpowers and culture-safe
+            conservation action ideas.
+          </p>
+          <p><strong>Key Sense:</strong> <span id="animal-sense">-</span></p>
+          <p><strong>Adaptation:</strong> <span id="animal-adaptation">-</span></p>
+          <p><strong>Take Action:</strong> <span id="animal-action">-</span></p>
+        </article>
+      </section>
+
+      <section
+        id="panel-culture"
+        class="panel"
+        role="tabpanel"
+        aria-labelledby="tab-culture"
+        hidden
+      >
+        <h2>Ancient and Original Histories, Cultures, and Traditions</h2>
+        <p>
+          Explore respectful snapshots from multiple cultures and practice how
+          to learn with curiosity, care, and consent.
+        </p>
+
+        <article class="card">
+          <label class="label" for="culture-select">Choose a culture or civilization</label>
+          <select id="culture-select"></select>
+
+          <div class="culture-card">
+            <h3 id="culture-name"></h3>
+            <p id="culture-region" class="micro"></p>
+            <p id="culture-history"></p>
+            <p><strong>Tradition:</strong> <span id="culture-tradition"></span></p>
+            <p><strong>Value:</strong> <span id="culture-value"></span></p>
+          </div>
+
+          <fieldset class="respect-check">
+            <legend id="respect-question"></legend>
+            <div id="respect-options"></div>
+          </fieldset>
+
+          <button id="check-respect" class="action" type="button">
+            Check Respect Choice
+          </button>
+          <p id="respect-feedback" class="feedback" aria-live="polite"></p>
+        </article>
+      </section>
+
+      <section
+        id="panel-quiz"
+        class="panel"
+        role="tabpanel"
+        aria-labelledby="tab-quiz"
+        hidden
+      >
+        <h2>Quest Quiz</h2>
+        <p>Test your learning across all modules. You can replay to improve.</p>
+
+        <article class="card">
+          <button id="start-quiz" class="action" type="button">Start Quiz</button>
+
+          <div id="quiz-area" hidden>
+            <p id="quiz-progress" class="micro"></p>
+            <h3 id="quiz-question"></h3>
+            <div id="quiz-options" class="button-grid"></div>
+            <p id="quiz-feedback" class="feedback" aria-live="polite"></p>
+            <button id="next-quiz" class="action ghost" type="button" hidden>
+              Next Question
+            </button>
+          </div>
+
+          <p id="quiz-result" class="feedback strong" aria-live="polite"></p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="shell footer">
+      <p>
+        Built as an educational infotainment prototype. Content is simplified
+        for learning and should be explored with teachers, families, and trusted
+        community knowledge keepers.
+      </p>
+    </footer>
+  </body>
+</html>
