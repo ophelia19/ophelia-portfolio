@@ -1,19 +1,20 @@
 # Ophelia Fernandes Portfolio
 
-This is a responsive personal portfolio website built from resume content.
+This is Ophelia Fernandes’s professional and creative portfolio. It includes project case studies, published writing and audio, career history, board service, and training.
 
 ## Files
 
-- `index.html` - page content and sections
-- `styles.css` - layout, colors, typography, responsiveness
-- `script.js` - section reveal animation on scroll
+- `index.html` contains the portfolio and links to public work.
+- `styles.css` contains the responsive layout.
+- `assets/` contains the portfolio image.
+- `kids-edutainment-app/` contains the Ocean and Origins Learning Lab prototype.
 
 ## Accessibility
 
 - Keyboard support with visible focus styles
 - Skip link to jump to main content
-- Screen-reader text for external link behavior
-- Reduced-motion support via `prefers-reduced-motion`
+- Semantic headings and native disclosure controls
+- Portfolio content and navigation work without JavaScript
 
 ## Run locally
 
@@ -21,10 +22,4 @@ Open `index.html` directly in a browser.
 
 ## Publish with GitHub Pages
 
-1. Push this repo to GitHub.
-2. In GitHub: **Settings -> Pages**.
-3. Under **Build and deployment**, select:
-   - Source: `Deploy from a branch`
-   - Branch: `main` and folder `/ (root)`
-4. Save. Your site will deploy to:
-   - `https://<your-username>.github.io/<repo-name>/`
+GitHub Pages publishes from the root of `main`. Changes pushed to `main` deploy to [Ophelia Fernandes’s portfolio](https://ophelia19.github.io/ophelia-portfolio/).
